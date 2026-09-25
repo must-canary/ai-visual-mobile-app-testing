@@ -36,7 +36,12 @@ function Workspace() {
             <PanelLeftOpen className="size-4" />
           )}
         </Button>
-        <h1 className="text-sm font-semibold">Visual Mobile Testing</h1>
+        <div className="flex flex-col leading-tight">
+          <h1 className="text-sm font-semibold">Visual Mobile Testing</h1>
+          <span className="text-[10px] font-normal text-muted-foreground">
+            Initiated &amp; developed by Magha Ram
+          </span>
+        </div>
         <span className="text-[11px] text-muted-foreground">
           plain English steps · vision resolves the coordinates
         </span>
