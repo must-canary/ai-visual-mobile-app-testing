@@ -142,6 +142,24 @@ export const COMMAND_SPECS: CommandSpec[] = [
     }),
   },
   {
+    kind: "waitMs",
+    label: "Wait milliseconds",
+    usage: "Wait <n> milliseconds",
+    description: "Pause for an exact number of milliseconds",
+    snippet: "Wait 500 milliseconds",
+    caretOffset: 5,
+    patterns: [
+      /^wait\s+(?:for\s+)?([1-9]\d*)\s*(?:milliseconds?|millisecs?|millis?|msecs?|ms)$/i,
+      /^wait\s+until\s+([1-9]\d*)\s*(?:milliseconds?|millisecs?|millis?|msecs?|ms)$/i,
+    ],
+    build: (m, lineNo, raw) => ({
+      kind: "waitMs",
+      lineNo,
+      raw,
+      milliseconds: Number(m[1]),
+    }),
+  },
+  {
     kind: "wait",
     label: "Wait Until",
     usage: 'Wait Until <n> Seconds',

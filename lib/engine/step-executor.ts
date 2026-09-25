@@ -825,6 +825,15 @@ export async function executeStep(
         break;
       }
 
+      case "waitMs": {
+        skipStage(ctx, result, "locate", "no target to resolve");
+        await runStage(ctx, result, "act", async () => {
+          await sleep(ctx, step.milliseconds);
+          return { detail: `waited ${step.milliseconds}ms`, value: null };
+        });
+        break;
+      }
+
       case "back": {
         skipStage(ctx, result, "locate", "no target to resolve");
         await runStage(ctx, result, "act", async () => {

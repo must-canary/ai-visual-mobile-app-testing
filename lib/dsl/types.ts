@@ -8,6 +8,7 @@ export type StepKind =
   | "scroll"
   | "scrollUntil"
   | "wait"
+  | "waitMs"
   | "waitVisible"
   | "longPress"
   | "select"
@@ -47,6 +48,7 @@ export type ScrollUntilStep = Base & {
   target: string;
 };
 export type WaitStep = Base & { kind: "wait"; seconds: number };
+export type WaitMsStep = Base & { kind: "waitMs"; milliseconds: number };
 export type WaitVisibleStep = Base & { kind: "waitVisible"; target: string };
 export type TargetStep = Base & {
   kind: "longPress" | "check" | "uncheck" | "clear";
@@ -70,6 +72,7 @@ export type Step =
   | ScrollStep
   | ScrollUntilStep
   | WaitStep
+  | WaitMsStep
   | WaitVisibleStep
   | TargetStep
   | SelectStep
